@@ -1,0 +1,10 @@
+FROM node:latest as base
+
+WORKDIR /srv/app
+COPY package*.json ./
+RUN npm install typescript -g
+RUN npm i
+COPY . .
+RUN npm run buildProd
+EXPOSE 3000
+CMD ["node", "build/server.js"]

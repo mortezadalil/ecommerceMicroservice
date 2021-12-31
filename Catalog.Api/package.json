@@ -4,7 +4,10 @@
   "description": "",
   "main": "source/server.ts",
   "scripts": {
-    "build": "rimraf ./build && prettier --write source/ && tsc"
+    "build": "rimraf ./build && prettier --write source/ && tsc",
+    "buildProd": "tsc",
+    "nodemon":"nodemon source/server.ts"
+
   },
   "author": "",
   "license": "ISC",
