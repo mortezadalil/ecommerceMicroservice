@@ -1,0 +1,14 @@
+version: '3'
+services:
+  catalog.api:
+    image: catalogapi
+    container_name: catalogapi
+    build: 
+      context: ./Catalog.Api
+      dockerfile: dockerfile
+
+  catalog.db:
+    image: mongo
+    container_name: catalogdb
+    
+

@@ -13,12 +13,12 @@ const MONGO_OPTIONS = {
     autoIndex: false,
     retryWrites: false
 };
-const MONGO_HOST = process.env.MONGO_URL || `localhost:27017`;
+const MONGO_HOST = process.env.MONGO_URL || 'localhost:27017';
 
 const MONGO = {
     host: MONGO_HOST,
     options: MONGO_OPTIONS,
-    url: `mongodb://${MONGO_HOST}`
+    url: 'mongodb://${MONGO_HOST}'
 };
 
 //دسترسی به متغیرهای انوایرومنت و اگر موجود نبودند استفاده از مقادیر پیش فرض

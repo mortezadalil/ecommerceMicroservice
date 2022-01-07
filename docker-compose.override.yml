@@ -1,0 +1,22 @@
+version: '3'
+services:
+  catalog.api:
+    ports:
+      - 4000:4300
+    depends_on:
+      - catalog.db
+    environment:
+      - MONGO_URL=catalogdb:27017
+  catalog.db:
+    ports:
+      - 27017:27017
+    restart: always
+
+    volumes:
+      - c:/mongodb:/data/db
+      - c:/mongodb_configfolder:/data/configdb
+
+
+
+  
+
