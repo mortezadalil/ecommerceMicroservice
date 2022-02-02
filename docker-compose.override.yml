@@ -11,10 +11,24 @@ services:
     ports:
       - 27017:27017
     restart: always
-
     volumes:
       - c:/mongodb:/data/db
       - c:/mongodb_configfolder:/data/configdb
+
+  basket.api:
+    ports:
+      - 4100:5000
+    depends_on:
+      - basket.db
+    volumes:
+      - C:\Work\ecommerceMicroservice\Basket.Api\appsettings.json:/app/appsettings.json
+    restart: always
+      
+  basket.db:
+    ports:
+      - 6379:6379
+    restart: always
+
 
 
 

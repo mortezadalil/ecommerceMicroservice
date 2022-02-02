@@ -10,5 +10,16 @@ services:
   catalog.db:
     image: mongo
     container_name: catalogdb
+
+  basket.api:
+    image: basketapi
+    container_name: basketapi
+    build: 
+      context: ./Basket.Api
+      dockerfile: dockerfile
+  
+  basket.db:
+    image: redis
+    container_name: redisdb
     
 
