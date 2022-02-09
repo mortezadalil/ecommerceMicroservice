@@ -12,8 +12,8 @@ services:
       - 27017:27017
     restart: always
     volumes:
-      - c:/mongodb:/data/db
-      - c:/mongodb_configfolder:/data/configdb
+      - ./mongodb:/data/db
+      - ./mongodb_configfolder:/data/configdb
 
   basket.api:
     ports:
@@ -21,7 +21,7 @@ services:
     depends_on:
       - basket.db
     volumes:
-      - C:\Work\ecommerceMicroservice\Basket.Api\appsettings.json:/app/appsettings.json
+      - ./Basket.Api/appsettings.json:/app/appsettings.json
     restart: always
       
   basket.db:

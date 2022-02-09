@@ -2,4 +2,5 @@
 */bin
 */obj
 */Debug
-
+/mongodb
+/mongodb_configfolder
