@@ -21,5 +21,21 @@ services:
   basket.db:
     image: redis
     container_name: redisdb
+
+  
+  discount.api:
+    image: discountapi
+    container_name: discountapi
+    build: 
+      context: ./Discount.Api
+      dockerfile: dockerfile
+
+  discount.db:
+    image: postgres
+    container_name: postgresdb
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
     
 

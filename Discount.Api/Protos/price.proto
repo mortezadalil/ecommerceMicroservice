@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "Discount.Api.Grpc";
+
+package price;
+
+// The greeting service definition.
+service Price {
+  // Sends a greeting
+  rpc GetPrice (PriceRequest) returns (PriceReply);
+}
+
+// The request message containing the user's name.
+message PriceRequest {
+  int32 id=1;
+}
+
+// The response message containing the greetings.
+message PriceReply {
+  int32 id=1;
+  int64 amount=2;
+  int64 currentAmount=3;
+  string errorMessage=4;
+}

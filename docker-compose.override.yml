@@ -16,6 +16,8 @@ services:
       - ./mongodb_configfolder:/data/configdb
 
   basket.api:
+    environment:
+      - "DiscountGrpcServerUrl=http://discountapi:5003"
     ports:
       - 4100:5000
     depends_on:
@@ -29,7 +31,46 @@ services:
       - 6379:6379
     restart: always
 
+  discount.api:
+    environment:
+     - "DatabaseSettings:ConnectionString=Server=postgresdb;Port=5432;Database=DiscountDb;User Id=postgres;Password=123456;"
+     - ASPNETCORE_ENVIRONMENT=DEVELOPMENT
+    ports:
+      - 4200:5001
+      - 4300:5003
+    depends_on:
+      - discount.db
+    volumes:
+      - ./Discount.Api/appsettings.json:/app/appsettings.json
+    restart: always
 
+  discount.db:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=DiscountDb
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  
+  pgadmin:
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=mortezadalil@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=1234567
+    ports:
+      - 5050:80
+    restart: always
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+
+
+volumes:
+  mongo_data:
+  postgres_data:
+  pgadmin_data:
 
 
   

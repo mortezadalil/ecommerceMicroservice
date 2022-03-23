@@ -13,4 +13,4 @@ build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = c:\Work\ecommerceMicroservice\Basket.Api
-build_property._RazorSourceGeneratorDebug =
+build_property._RazorSourceGeneratorDebug = 
